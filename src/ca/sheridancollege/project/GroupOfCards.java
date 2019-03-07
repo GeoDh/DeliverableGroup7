@@ -21,22 +21,19 @@ public class GroupOfCards
     private ArrayList <Card> cards;
     private int size;//the size of the grouping
     
-    public GroupOfCards(int givenSize)
-    {
-        size = givenSize;
+    public GroupOfCards(int size){
+        this.size = size;
     }
     
     /**
      * A method that will get the group of cards as an ArrayList
      * @return the group of cards.
      */
-    public ArrayList<Card> showCards()
-    {
+    public ArrayList<Card> cards(){
         return cards;
     }
     
-    public void shuffle()
-    {
+    public void shuffle(){
         Collections.shuffle(cards);
     }
 
