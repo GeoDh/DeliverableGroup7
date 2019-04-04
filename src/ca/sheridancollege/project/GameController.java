@@ -1,7 +1,5 @@
 package ca.sheridancollege.project;
 
-import java.util.ArrayList;
-
 /**
  * Our main view class
  *
@@ -10,17 +8,16 @@ import java.util.ArrayList;
 public class GameController extends DeckOfCards {
 
     public static void main(String[] args) {
-
-//        ArrayList<Player> players = new ArrayList<>();
-//        ArrayList<Card> deck = new ArrayList<>();
+        DeckOfCards deck = new DeckOfCards(Card.Suit.HEART, Card.Rank.JACK, 52);
         
-
+        
+        
         for (Card card : deck.generateDeck()) {
             System.out.println(card.getRank() + " of " + card.getSuit());
         }
     }
 
-    public GameController(Suit suit, Rank rank, int size) {
+    public GameController(Card.Suit suit, Card.Rank rank, int size) {
         super(suit, rank, size);
     }
 }
