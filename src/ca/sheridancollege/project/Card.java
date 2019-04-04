@@ -13,13 +13,36 @@ package ca.sheridancollege.project;
  */
 public abstract class Card {
     //default modifier for child classes
-    
     /**
      * Students should implement this method for their specific children classes 
-     * @return a String representation of a card. Could be an UNO card, a regular playing card etc.
-     */
+    **/
+    //default modifier for child classes
+
+    public enum Suit {
+        HEART, SPADE, CLUB, DIAMOND
+    };
+
+    public enum Rank {
+        ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, JACK, QUEEN, KING
+    };
+    private final Suit suit;
+    private final Rank rank;
+
+    public Card(Suit s, Rank r) {
+        suit = s;
+        rank = r;
+    }
+
+    public Rank getRank() {
+        return this.rank;
+    }
+
+    public Suit getSuit() {
+        return this.suit;
+    }
     
+    /** @return a String representation of a card. Could be an UNO card, a regular playing card etc.
+     */
     @Override
     public abstract String toString();
-    
 }

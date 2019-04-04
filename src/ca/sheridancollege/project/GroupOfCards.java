@@ -14,14 +14,15 @@ import java.util.Collections;
  * The group of cards has a maximum size attribute which is flexible for reuse.
  * @author dancye
  */
-public class GroupOfCards 
+public class GroupOfCards extends Card
 {
    
     //The group of cards, stored in an ArrayList
     private ArrayList <Card> cards;
     private int size;//the size of the grouping
     
-    public GroupOfCards(int size){
+    public GroupOfCards(Suit suit, Rank rank, int size){
+        super(suit,rank);
         this.size = size;
     }
     
@@ -49,6 +50,11 @@ public class GroupOfCards
      */
     public void setSize(int givenSize) {
         size = givenSize;
+    }
+
+    @Override
+    public String toString() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }//end class
