@@ -77,30 +77,34 @@ public class DeckOfCards extends Card {
     //In the GameController class we need to create the ArrayLists for each PlayerHand
     //and pass that ArrayList into this method where it will add to that ArrayList and remove cards
     //from the shuffledDeck and return the players ArrayList Hand
-    public ArrayList<Card> Deal(Player[] players) {
-        int handSize;
-        int totalPlayers = players.length;
-        ArrayList<Card> shuffledDeck = generateDeck();
-        ArrayList<Card> playersHands = new ArrayList<>();
+    public ArrayList<Card> Deal(int totalPlayers) {
+        ArrayList<Card> remainedCardsInDeck = generateDeck();
+
+        ArrayList<Card> eachPlayerHand;
         
-        if (totalPlayers < 4) {
-            handSize = 7;
-        } else {
-            handSize = 5;
-        }
-        
-        Card[] eachPlayerHand = new Card[handSize];
+        if (totalPlayers < 4)
+            eachPlayerHand = new ArrayList<>(7);
+        else
+            eachPlayerHand = new ArrayList<>(5);
+//            for (int i = 0; i < 7; i++) {;
+//                
+//            }
 
         for (int i = 0; i < totalPlayers; i++) {
-            for (int j = 0; j < handSize; j++) {
-                
-            }
-            //shuffledDeck.get(i) = eachPlayerHand[i];
-            
             
         }
+        
+
+//        for (int i = 0; i < totalPlayers; i++) {
+//            Card[] "Player"+i + "Hand" = new Card[handSize];
+//            int index = (int) (Math.random() * shuffledDeck.size());
+//            for (int j = 0; j < handSize; j++) {
+//                shuffledDeck.get(index) = playersHands[j];
+//            }
+//
+//        }
 
         //if the totalPlayers in the game is 2 or 3 they're dealt seven cards            
-        return playersHands;
+        return eachPlayerHand;
     }
 }

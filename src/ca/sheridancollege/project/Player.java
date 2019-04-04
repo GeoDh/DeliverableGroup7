@@ -5,15 +5,20 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
+
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  * @author dancye, 2018
  */
+
 public abstract class Player {
     protected String playerID; //the unique ID for this player
+    private ArrayList <Card> playerHand;
     
-    public Player(String playerID){
+    public Player(String playerID, ArrayList <Card> playerHand){
         this.playerID = playerID;
+        this.playerHand = playerHand;
     }
     
     /**

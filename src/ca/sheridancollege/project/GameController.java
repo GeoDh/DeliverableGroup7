@@ -13,8 +13,7 @@ public class GameController extends DeckOfCards {
 
 //        ArrayList<Player> players = new ArrayList<>();
 //        ArrayList<Card> deck = new ArrayList<>();
-        DeckOfCards deck = new DeckOfCards(Suit.HEART, Rank.JACK, 52);
-//        deck.generateDeck();
+        
 
         for (Card card : deck.generateDeck()) {
             System.out.println(card.getRank() + " of " + card.getSuit());
