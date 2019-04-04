@@ -10,11 +10,10 @@ import java.util.ArrayList;
 public class GameController extends DeckOfCards {
 
     public static void main(String[] args) {
-
-//        ArrayList<Player> players = new ArrayList<>();
-//        ArrayList<Card> deck = new ArrayList<>();
+        DeckOfCards deck = new DeckOfCards(Suit.HEART, Rank.JACK, 52);
         
-
+        
+        
         for (Card card : deck.generateDeck()) {
             System.out.println(card.getRank() + " of " + card.getSuit());
         }
