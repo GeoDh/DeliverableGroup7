@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author dancye, 2018
  */
 
-public abstract class Player {
+public class Player {
     protected String playerID; //the unique ID for this player
     private ArrayList <Card> playerHand;
     
@@ -41,6 +41,6 @@ public abstract class Player {
      * with your specific type of Player and filled in with logic to play your game.
      */
     
-    public abstract void play();
+//    public abstract void play();
     
 }
