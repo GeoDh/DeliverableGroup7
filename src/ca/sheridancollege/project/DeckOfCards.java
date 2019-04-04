@@ -9,18 +9,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * A concrete class that represents any grouping of cards for a Game. HINT, you might want to
- * subclass this more than once. The group of cards has a maximum size attribute which is flexible
+ * A concrete class that represents any grouping of deck for a Game. HINT, you might want to
+ * subclass this more than once. The group of deck has a maximum size attribute which is flexible
  * for reuse.
  *
  * @author dancye
  */
 public class DeckOfCards extends Card {
 
-    private int decksize = 52;
-    //The group of cards, stored in an ArrayList
-    public ArrayList<Card> cards;
-//    public Card[] cards = new Card[decksize];
+    private final int decksize = 52;
+    //The group of deck, stored in an ArrayList
+    public ArrayList<Card> deck;
+//    public Card[] deck = new Card[decksize];
     private int size;//the size of the grouping
 
     /**
@@ -35,42 +35,72 @@ public class DeckOfCards extends Card {
     }
 
     /**
-     * A method that will get the group of cards as an ArrayList
+     * A method that will get the group of deck as an ArrayList
      *
-     * @return the group of cards.
+     * @return the group of deck.
      */
     public ArrayList<Card> cards() {
-        return cards;
+        return deck;
     }
 
     public void shuffle() {
-        Collections.shuffle(cards);
+        Collections.shuffle(deck);
     }
 
     /**
-     * @return the size of the group of cards
+     * @return the size of the group of deck
      */
     public int getSize() {
         return size;
     }
 
     /**
-     * @param givenSize the max size for the group of cards
+     * @param givenSize the max size for the group of deck
      */
     public void setSize(int givenSize) {
         size = givenSize;
     }
 
-    public void generateDeck() {
-        cards = new ArrayList<Card>();
+    public ArrayList<Card> generateDeck() {
+        deck = new ArrayList<>();
         for (Suit suit : Suit.values()) {
             for (Rank rank : Rank.values()) {
-//                cards[countCards] = (new Card(suit, rank) {});
-                cards.add(new Card(suit, rank));
+                deck.add(new Card(suit, rank));
             }
         }//end outter for
         shuffle();
+        return deck;
+
     }//end method
 
-}//end class
+    //We need this method to deal out cards to one player and remove it from the desk
+    //In the GameController class we need to create the ArrayLists for each PlayerHand
+    //and pass that ArrayList into this method where it will add to that ArrayList and remove cards
+    //from the shuffledDeck and return the players ArrayList Hand
+    public ArrayList<Card> Deal(Player[] players) {
+        int handSize;
+        int totalPlayers = players.length;
+        ArrayList<Card> shuffledDeck = generateDeck();
+        ArrayList<Card> playersHands = new ArrayList<>();
+        
+        if (totalPlayers < 4) {
+            handSize = 7;
+        } else {
+            handSize = 5;
+        }
+        
+        Card[] eachPlayerHand = new Card[handSize];
 
+        for (int i = 0; i < totalPlayers; i++) {
+            for (int j = 0; j < handSize; j++) {
+                
+            }
+            //shuffledDeck.get(i) = eachPlayerHand[i];
+            
+            
+        }
+
+        //if the totalPlayers in the game is 2 or 3 they're dealt seven cards            
+        return playersHands;
+    }
+}
