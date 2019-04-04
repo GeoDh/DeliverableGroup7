@@ -23,9 +23,4 @@ public class Score {
 		this.totalScore = totalScore;
 	}
 
-	public void scoreModifier() {
-		// TODO - implement Score.scoreModifier
-		throw new UnsupportedOperationException();
-	}
-
 }

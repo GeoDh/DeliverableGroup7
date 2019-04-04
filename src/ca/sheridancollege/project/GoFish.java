@@ -23,8 +23,8 @@ public abstract class GoFish
     public GoFish(String givenName)
     {
         gameName = givenName;
-        players = new ArrayList();
-    }
+        players = new ArrayList();        
+    }   
 
     /**
      * @return the gameName
