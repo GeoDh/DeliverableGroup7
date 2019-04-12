@@ -15,13 +15,23 @@ public class Deck extends GroupOfCards {
         cards = new ArrayList<>(size);
     }
     
-    public void draw(PlayerHand playerHand){
-        playerHand.cards.add(cards.get(0));
-        cards.remove(0);
+//    public void deal(){
+//        ArrayList<Card> hand = 
+//    }
+    
+    public void draw(Player player){
+        ArrayList<Card> hand = player.getPlayerHand();
+        Card drawnCard = cards.get(0);
+        
+        hand.add(drawnCard);
+        cards.remove(drawnCard);
+        
+        System.out.printf("%s picked up the %s of %s", player.getPlayerName(),
+                drawnCard.getValue().showValue(), drawnCard.getSuit().showSuit());
     }
     
     @Override
-    public void generateCards() {
+    public void generateCards(){
         for (Suit suit : Suit.values()){
             for (Value value : Value.values()){
                 cards.add(new Card(suit, value));

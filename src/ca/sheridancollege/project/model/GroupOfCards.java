@@ -15,7 +15,7 @@ import java.util.Collections;
  *
  * @author dancye
  */
-public abstract class GroupOfCards{
+public class GroupOfCards{
 
     // Initialize data fields
     protected ArrayList<Card> cards; //The group of deck, stored in an ArrayList
@@ -38,6 +38,8 @@ public abstract class GroupOfCards{
     public void shuffle() {
         Collections.shuffle(cards);
     }
-
-    public abstract void generateCards(); 
+    
+    public void generateCards(){
+        
+    }
 }

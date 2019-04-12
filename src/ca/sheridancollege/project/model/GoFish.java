@@ -12,10 +12,24 @@ package ca.sheridancollege.project.model;
  */
 public class GoFish{
     private String gameName;
-    private Player[] players;
     private int totalPlayers;
+    private int totalBooks;
+    private Player[] players;
     private Player winner;
     
+    /**
+     * @return the players
+     */
+    public Player[] getPlayers() {
+        return players;
+    }
+
+    /**
+     * @param players the players to set
+     */
+    public void setPlayers(Player[] players) {
+        this.players = players;
+    }
     
     /**
      * 
@@ -47,20 +61,6 @@ public class GoFish{
      */
     public void setTotalPlayers(int totalPlayers){
         
-    }
-    
-    /**
-      * @return the players of this game
-      */
-    public Player[] getPlayers() {
-        return players;
-    }
-    
-    /**
-     * @param players the players to set
-     */
-    public void setPlayers(Player[] players) {
-        this.players = players;
     }
 
     /**

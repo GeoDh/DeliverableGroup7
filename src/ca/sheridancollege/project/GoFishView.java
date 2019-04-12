@@ -21,26 +21,52 @@ public class GoFishView{
         controller = new GoFishController();
     }
     
-    public void run(){
+    public void gameInit(){
         //Create scanner object
         Scanner input = new Scanner(System.in);
         
-        System.out.printf("How many players?: ");
-        int totalPlayers = input.nextInt();
-        
-        
-        
+        // Initialize, generate, and shuffle deck
         GroupOfCards deck = new Deck(52);
         deck.generateCards();
         deck.shuffle();
         
-        for(Card card : deck.getCards()){
-            System.out.println(card);
+        // Declare total amount of players
+        System.out.println("How many players?: "
+                + "\n2 PLAYERS"
+                + "\n3 PLAYERS"
+                + "\n4 PLAYERS");
+        int totalPlayers = input.nextInt();
+        
+        // Set important information to create game
+        controller.createGame("Go Fish", totalPlayers);        
+        
+        // Player creation
+        for (int i = 0; i < totalPlayers; i++) {
+            System.out.printf("Player %d, please enter your name: %n", i+1);
+            String playerName = input.next();
+            
+            controller.addPlayers(i, playerName);
+            
         }
+        
+        controller.displayPlayer();
+        
+        
+        
+        
+    }
+    
+    public void playerTurn(){
+        
+    }
+    
+    public void gameEnd(){
+        
     }
     
     public static void main(String[] args) {
         GoFishView goFish = new GoFishView();
-        goFish.run();
+        
+        goFish.gameInit();
     }
 }

@@ -5,34 +5,91 @@
  */
 package ca.sheridancollege.project.model;
 
+import java.util.ArrayList;
+
 /**
  * A class that models each Player in the game. Players have an identifier, which should be unique.
  * @author dancye, 2018
  */
 
 public class Player {
-    protected String playerID; //the unique ID for this player
-    protected String playerName;
-    protected final PlayerHand playerHand;
+    private String playerName;
+    private ArrayList<Card> playerHand;
+    private int book;
     
-    public Player(String playerID, String playerName, PlayerHand playerHand){
-        this.playerID = playerID;
+    public Player(String playerName){
         this.playerName = playerName;
-        this.playerHand = playerHand;
-    }
-    
-    public String getPlayerID() {
-        return playerID;
+        playerHand = new ArrayList<>();
     }
     
     public String getPlayerName(){
         return playerName;
     }
     
-    public void askPlayer(PlayerHand otherPlayer, Card card){
-        for(Card card : otherPlayer){
-            
-        }
+    /**
+     * @param playerName the playerName to set
+     */
+    public void setPlayerName(String playerName) {
+        this.playerName = playerName;
+    }
+
+    /**
+     * @return the book
+     */
+    public int getBook() {
+        return book;
+    }
+
+    /**
+     * @param book the book to set
+     */
+    public void setBook(int book) {
+        this.book = book;
     }
     
+    /**
+     * @return the playerHand
+     */
+    public ArrayList<Card> getPlayerHand() {
+        return playerHand;
+    }
+
+    /**
+     * @param playerHand the playerHand to set
+     */
+    public void setPlayerHand(ArrayList<Card> playerHand) {
+        this.playerHand = playerHand;
+    }
+    
+    public void askPlayer(Player otherPlayer, Card askingCard, Deck deck){
+        ArrayList<Card> otherHand = otherPlayer.getPlayerHand();
+        
+        boolean flag = false;
+        for(Card card : otherHand){
+            if(card == askingCard){
+                this.getPlayerHand().add(card);
+                otherHand.remove(card);
+                flag = true;
+                break;
+            }
+        }
+        
+        if(flag){
+            System.out.printf("You snagged %s's %s of %s.", otherPlayer.getPlayerName(), 
+                    askingCard.getValue().showValue(), askingCard.getSuit().showSuit());
+        }else{
+            System.out.println("Go Fish!");
+            deck.draw(this);
+        }
+    }
+
+    @Override
+    public String toString() {
+        String format = "Player Name: %s"
+                + "%nHand: %s";
+        return String.format(format, playerName, playerHand);
+    }
+    
+    
+
 }

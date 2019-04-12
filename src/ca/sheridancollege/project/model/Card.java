@@ -23,7 +23,7 @@ public class Card {
             this.suit = suit;
         }
         
-        String showSuit(){
+        public String showSuit(){
             return suit;
         }
     };
@@ -37,7 +37,7 @@ public class Card {
             this.value = value;
         }
         
-        String showValue(){
+        public String showValue(){
             return value;
         }
     };
