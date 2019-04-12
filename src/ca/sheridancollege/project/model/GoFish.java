@@ -15,7 +15,8 @@ public class GoFish{
     private int totalPlayers;
     private int totalBooks;
     private Player[] players;
-    private Player winner;
+    private Player winner = null;
+    private int handSize;
     
     /**
      * @return the players
@@ -75,6 +76,20 @@ public class GoFish{
      */
     public void setWinner(Player winner) {
         this.winner = winner;
+    }
+
+    /**
+     * @return the handSize
+     */
+    public int getHandSize() {
+        return handSize;
+    }
+
+    /**
+     * @param handSize the handSize to set
+     */
+    public void setHandSize(int handSize) {
+        this.handSize = handSize;
     }
     
     

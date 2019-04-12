@@ -13,7 +13,7 @@ public class GoFishController{
     private final GoFish goFish;
 
     public GoFishController() {
-        goFish = new GoFish();
+        this.goFish = new GoFish();
         
     }
     
@@ -26,6 +26,7 @@ public class GoFishController{
         goFish.setGameName(gameName);
         goFish.setTotalPlayers(totalPlayers);
         goFish.setPlayers(new Player[totalPlayers]);
+        
     }
     
     /**
@@ -35,6 +36,10 @@ public class GoFishController{
      */
     public void addPlayers(int playerID, String playerName){
         goFish.getPlayers()[playerID] = new Player(playerName);
+    }
+    
+    public Player[] getThesePlayers(){
+        return goFish.getPlayers();
     }
     
     /**
@@ -48,19 +53,20 @@ public class GoFishController{
             
         }
     }
-    
-    /**
-     * 
-     * @return 
-     */
-    public int handsize(){
+   
+    public void setHandsize(){
         int totalPlayers = goFish.getTotalPlayers();
         
         if(totalPlayers <= 3)
-            return 7;
+            goFish.setHandSize(7);
         else
-            return 5;
+            goFish.setHandSize(5);
     }
+    
+    public int getThisHandSize(){
+        return goFish.getHandSize();
+    }
+    
     
     public void declareWinner(){
         Player[] players = goFish.getPlayers();
@@ -75,7 +81,7 @@ public class GoFishController{
         goFish.setWinner(mostBooks);
     }
     
-    public void displayPlayer(){
+    public void displayPlayers(){
         Player[] players = goFish.getPlayers();
 
         for (Player player : players) {

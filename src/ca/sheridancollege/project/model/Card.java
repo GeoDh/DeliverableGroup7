@@ -61,6 +61,6 @@ public class Card {
     @Override
     public String toString(){
         String format = "%s of %s";
-        return String.format(format, value, suit);
+        return String.format(format, value.showValue(), suit.showSuit());
     }
 }

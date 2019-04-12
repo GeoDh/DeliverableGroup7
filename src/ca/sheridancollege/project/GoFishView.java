@@ -4,7 +4,6 @@ import ca.sheridancollege.project.model.Player;
 import ca.sheridancollege.project.model.Card;
 import ca.sheridancollege.project.model.Deck;
 import ca.sheridancollege.project.model.GoFishController;
-import ca.sheridancollege.project.model.GroupOfCards;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -26,7 +25,7 @@ public class GoFishView{
         Scanner input = new Scanner(System.in);
         
         // Initialize, generate, and shuffle deck
-        GroupOfCards deck = new Deck(52);
+        Deck deck = new Deck(52);
         deck.generateCards();
         deck.shuffle();
         
@@ -38,7 +37,8 @@ public class GoFishView{
         int totalPlayers = input.nextInt();
         
         // Set important information to create game
-        controller.createGame("Go Fish", totalPlayers);        
+        controller.createGame("Go Fish", totalPlayers);   
+        controller.setHandsize();
         
         // Player creation
         for (int i = 0; i < totalPlayers; i++) {
@@ -49,15 +49,20 @@ public class GoFishView{
             
         }
         
-        controller.displayPlayer();
+        Player[] players = controller.
+        int handSize = controller.getThisHandSize();
+        
+        deck.deal(players, handSize);
         
         
-        
+//        controller.displayPlayers();
         
     }
     
     public void playerTurn(){
-        
+        Player winner = controller.get
+        while()
+        controller.displayPlayer(0);
     }
     
     public void gameEnd(){
@@ -66,7 +71,8 @@ public class GoFishView{
     
     public static void main(String[] args) {
         GoFishView goFish = new GoFishView();
-        
         goFish.gameInit();
+        goFish.playerTurn();
+        goFish.gameEnd();
     }
 }
